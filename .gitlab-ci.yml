@@ -1,0 +1,19 @@
+cache: # 配置cache, 避免每一个job需要install一次的麻烦，节省了时间
+  key: "$CI_PROJECT_NAME" # 以项目为单位
+  paths:  # 缓存目录
+    - node_modules/
+  untracked: true # 缓存的是gitignore中忽略的全部文件
+
+stages: # 定义了不同阶段的jobs执行顺序，同一stage的job会同时执行
+  - install
+  - test
+
+install:
+  stage: install
+  script:  # 如果是用nenpm安装，必须写成以下形式
+    - npm install --unsafe-perm --registry=http://rnpm.hz.netease.com/ --registryweb=http://npm.hz.netease.com/ --cache=$HOME/.nenpm/.cache --userconfig=$HOME/.nenpmrc
+
+test:
+  stage: test
+  script:
+    - npm run test

@@ -1,0 +1,61 @@
+{
+  "name": "mrn-codemod",
+  "version": "1.0.7",
+  "description": "react native codemod scripts by NetEase Cloud Music team",
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "verbose": true,
+    "testEnvironment": "node",
+    "roots": [
+      "transform"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "transform/**/*.{js}": [
+      "prettier --write",
+      "git add"
+    ],
+    "index.js": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "keywords": [
+    "react",
+    "react native",
+    "codemod"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@g.hz.netease.com:22222/NeteaseMusicUI/react-native/rn-codemod.git"
+  },
+  "license": "MIT",
+  "bin": {
+    "mrn-codemod": "./bin/index.js"
+  },
+  "dependencies": {
+    "@babel/core": "^7.5.4",
+    "@babel/runtime": "^7.6.3",
+    "chalk": "^2.4.2",
+    "commander": "^2.20.0",
+    "execa": "^2.0.3",
+    "is-git-clean": "^1.1.0",
+    "jscodeshift": "^0.6.4",
+    "readdir": "^0.1.0",
+    "semver": "^6.3.0",
+    "prettier": "^1.18.2"
+  },
+  "devDependencies": {
+    "husky": "^3.0.2",
+    "jest": "^24.8.0",
+    "lint-staged": "^9.2.1"
+  }
+}
