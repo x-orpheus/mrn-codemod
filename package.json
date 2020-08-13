@@ -1,6 +1,6 @@
 {
   "name": "mrn-codemod",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "react native codemod scripts by NetEase Cloud Music team",
   "scripts": {
     "test": "jest"
@@ -35,7 +35,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "ssh://git@g.hz.netease.com:22222/NeteaseMusicUI/react-native/rn-codemod.git"
+    "url": "https://github.com/x-orpheus/mrn-codemod.git"
   },
   "license": "MIT",
   "bin": {
